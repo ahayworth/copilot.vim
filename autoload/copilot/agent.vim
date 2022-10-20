@@ -371,7 +371,7 @@ function! s:Command() abort
   let err = []
   let status = copilot#job#Stream(node + ['--version'], function('add', [out]), function('add', [err]))
   if status != 0
-    return [v:null, 'Node.js exited with status ' . status]
+    return [v:null, '', 'Node.js exited with status ' . status]
   endif
   let node_version = matchstr(join(out, ''), '^v\zs\d\+\.[^[:space:]]*')
   let major = str2nr(node_version)
